@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\User;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    Mail::to('example@example.com')->send(new WelcomeMail());
+
     return view('welcome');
 });
